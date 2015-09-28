@@ -116,6 +116,10 @@ void tests()
 	int* number_test_multiplication;
 	int* number_res_addition;
 	int* number_res_multiplication;
+	int* number_1;
+	int* number_2;
+	number_1 = new int[10];
+	number_2 = new int[10];
 	polynominal_1 = new int*[10];
 	polynominal_2 = new int*[10];
 	polynominal_res_addition = new int*[10];
@@ -128,10 +132,14 @@ void tests()
 	number_res_multiplication = new int[10];
 
 	// test0
+	number_1[0] = 1;
+	number_2[0] = 1;
 	polynominal_1[0] = new int[1];
 	polynominal_2[0] = new int[1];
 	polynominal_res_addition[0] = new int[1];
 	polynominal_res_multiplication[0] = new int[1];
+	polynominal_test_addition[0] = new int[1];
+	polynominal_test_multiplication[0] = new int[2];
 
 
 	polynominal_1[0][0] = 1;
@@ -142,10 +150,14 @@ void tests()
 	number_res_multiplication[0] = 1;
 	
 	//test1
+	number_1[1] = 3;
+	number_2[1] = 2;
 	polynominal_1[1] = new int[3];
 	polynominal_2[1] = new int[2];
 	polynominal_res_addition[1] = new int[3];
 	polynominal_res_multiplication[1] = new int[4];
+	polynominal_test_addition[1] = new int[3];
+	polynominal_test_multiplication[1] = new int[10];
 
 	polynominal_1[1][0] = 1000; polynominal_1[1][1] = 1000; polynominal_1[1][2] = 1000;
 	polynominal_2[1][0] = 1000; polynominal_2[1][1] = 1000;
@@ -155,37 +167,46 @@ void tests()
 	number_res_multiplication[1] = 4;
 
 	// test2
+	number_1[2] = 3;
+	number_2[2] = 3;
 	polynominal_1[2] = new int[3];
 	polynominal_2[2] = new int[3];
 	polynominal_res_addition[2] = new int[3];
 	polynominal_res_multiplication[2] = new int[5];
+	polynominal_test_addition[2] = new int[10];
+	polynominal_test_multiplication[2] = new int[10];
 
 	polynominal_1[2][0] = 1; polynominal_1[2][1] = 16; polynominal_1[2][2] = 14;
 	polynominal_2[2][0] = 12; polynominal_2[2][1] = 16; polynominal_2[2][2] = 5;
 	polynominal_res_addition[2][0] = 13; polynominal_res_addition[2][1] = 32; polynominal_res_addition[2][2] = 19;
-	polynominal_res_multiplication[2][0] = 12; polynominal_res_multiplication[2][1] = 208; polynominal_res_multiplication[2][2] = 429; polynominal_res_multiplication[2][3] = 304; polynominal_res_multiplication[2][4] = 74;
-	number_res_addition[1] = 3;
-	number_res_multiplication[1] = 5;
+	polynominal_res_multiplication[2][0] = 12; polynominal_res_multiplication[2][1] = 208; polynominal_res_multiplication[2][2] = 429; polynominal_res_multiplication[2][3] = 304; polynominal_res_multiplication[2][4] = 70;
+	number_res_addition[2] = 3;
+	number_res_multiplication[2] = 5;
 
 	//test3
+	number_1[3] = 6;
+	number_2[3] = 2;
 	polynominal_1[3] = new int[6];
 	polynominal_2[3] = new int[2];
 	polynominal_res_addition[3] = new int[6];
 	polynominal_res_multiplication[3] = new int[7];
+	polynominal_test_addition[3] = new int[10];
+	polynominal_test_multiplication[3] = new int[10];
 
 	polynominal_1[3][0] = 1; polynominal_1[3][1] = 2; polynominal_1[3][2] = 0; polynominal_1[3][3] = 0; polynominal_1[3][4] = 3; polynominal_1[3][5] = 1;
 	polynominal_2[3][0] = 0; polynominal_2[3][1] = 1;
 	polynominal_res_addition[3][0] = 1; polynominal_res_addition[3][1] = 3; polynominal_res_addition[3][2] = 0; polynominal_res_addition[3][3] = 0; polynominal_res_addition[3][4] = 3; polynominal_res_addition[3][5] = 1;
 	polynominal_res_multiplication[3][0] = 0; polynominal_res_multiplication[3][1] = 1; polynominal_res_multiplication[3][2] = 2; polynominal_res_multiplication[3][3] = 0; polynominal_res_multiplication[3][4] = 0; polynominal_res_multiplication[3][5] = 3; polynominal_res_multiplication[3][6] = 1;
-	number_res_addition[1] = 6;
-	number_res_multiplication[1] = 7;
+	number_res_addition[3] = 6;
+	number_res_multiplication[3] = 7;
 
 
 	//testing
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		polyplus(polynominal_1[i], 1, polynominal_2[i], 1, polynominal_test_addition[i], number_test_addition[i]);
-		polymultiply(polynominal_1[i], 1, polynominal_2[i], 1, polynominal_test_multiplication[i], number_test_multiplication[i]);
+		cout << "Test " << i << endl;
+		polyplus(polynominal_1[i], number_1[i], polynominal_2[i], number_2[i], polynominal_test_addition[i], number_test_addition[i]);
+		polymultiply(polynominal_1[i], number_1[i], polynominal_2[i], number_2[i], polynominal_test_multiplication[i], number_test_multiplication[i]);
 		//addiion
 		if (number_res_addition[i] != number_test_addition[i])
 		{
@@ -230,7 +251,7 @@ void tests()
 
 void main()
 {
-	Lesha();
-	//tests();
+	//Lesha();
+	tests();
 	system("PAUSE");
 }
