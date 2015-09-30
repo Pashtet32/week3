@@ -68,11 +68,15 @@ void test()
 	int ar3[10] = { 100, 501, 99, 1, 2, 3, 20 };
 	int n3 = 7;
 	int ar3answer[3] = { 501, 100, 99 };
-	testitself(ar3, n3, ar3answer, j);
+	testitself(ar3, n3, ar3answer, j); 
 	int ar4[10] = { 10, 12, 13, 14, 20, 29, 1, 10 };
 	int n4 = 8;
 	int ar4answer[3] = { 29, 20, 14 };
 	testitself(ar4, n4, ar4answer, j);
+	int ar5[10] = { -10, 12, 13, -140, 20, 29, -110, 80 };
+	int n5 = 8;
+	int ar5answer[3] = { 80, -140, -110 };
+	testitself(ar5, n5, ar5answer, j);
 }
 
 int main()
